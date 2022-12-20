@@ -1,0 +1,44 @@
+pipeline{
+
+
+      agent{
+	  
+	       label{
+		   
+		         label'built-in'
+				 customWorkspace '/mnt/data'
+		   
+		   }
+	  }
+	  
+	  stages{
+	  
+	        stage('run-in-def-wsp'){
+			
+			     steps{
+				        sh"mkdir wsp-default"
+				 }
+			}
+			
+			stage('run-in-wsp-2'){
+			
+			       steps{
+				          dir('/mnt/wsp-2'){
+						  
+						                  sh"mkdir wsp2"
+						  }
+				   }
+			}
+			
+			stage('run-in-wsp-3'){
+			
+			       steps{
+				          dir('/mnt/wsp-3'){
+						  
+						                  sh"mkdir wsp3"
+						  }
+				   }
+			}
+	  }
+
+}
