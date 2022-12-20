@@ -1,0 +1,42 @@
+pipeline{
+
+      agent{
+	  
+	         label{
+			 
+			       label'built-in'
+				   customWorkspace '/mnt/data'
+			 
+			 }
+	  
+	  }
+	  
+	  stages{
+	  
+	          stage('on-master-node'){
+			  
+			                   steps {
+							   
+							           sh"yum install tree -y"
+									   sh"mkdir master-node"
+					}
+			  }
+			  
+			  stage('on-QA-node'){
+			  
+			          agent{
+					  
+					       label{
+						           label'QA'
+								   customWorkspace '/mnt/data'
+						   }
+					  }
+					  
+					  steps{
+					            sh"sudo yum install tree -y"
+								sh"mkdir slave-node"
+					  }
+			  }
+	  }
+
+}
