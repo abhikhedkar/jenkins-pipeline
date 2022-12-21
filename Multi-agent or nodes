@@ -8,8 +8,7 @@ pipeline{
 				   customWorkspace '/mnt/data'
 			 
 			 }
-	  
-	  }
+	}
 	  
 	  stages{
 	  
@@ -20,7 +19,8 @@ pipeline{
 							           sh"yum install tree -y"
 									   sh"mkdir master-node"
 					}
-			  }
+					
+				}
 			  
 			  stage('on-QA-node'){
 			  
@@ -35,8 +35,9 @@ pipeline{
 					  steps{
 					            sh"sudo yum install tree -y"
 								sh"mkdir slave-node"
-					  }
-			  }
-	  }
+			}
+		}
+		
+	 }
 
 }
